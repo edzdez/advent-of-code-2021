@@ -20,7 +20,7 @@ My solutions for Advent of Code 2021
 - [x] Day 3
 - [x] Day 4
 - [x] Day 5
-- [ ] Day 6
+- [x] Day 6
 - [ ] Day 7
 - [ ] Day 8
 - [ ] Day 9
