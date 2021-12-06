@@ -52,19 +52,34 @@ vector<Line> readInput(ifstream &fin)
     return lines;
 }
 
+Point getGreatestPoint(const vector<Line> &vents)
+{
+    Point p{0, 0};
+
+    for (const auto &[ep1, ep2] : vents)
+    {
+        p.x = max(p.x, max(ep1.x, ep2.x));
+        p.y = max(p.y, max(ep1.y, ep2.y));
+    }
+
+    return p;
+}
+
+int countAns(const vector<vector<int>> &board)
+{
+    int ans = 0;
+    for (const auto &r : board)
+    {
+        for (const auto c : r)
+            ans += c >= 2;
+    }
+
+    return ans;
+}
+
 void part1(const vector<Line> &vents)
 {
-    auto greatestPoint = [&]() -> Point {
-        Point p{0, 0};
-
-        for (const auto &[ep1, ep2] : vents)
-        {
-            p.x = max(p.x, max(ep1.x, ep2.x));
-            p.y = max(p.y, max(ep1.y, ep2.y));
-        }
-
-        return p;
-    }();
+    auto greatestPoint = getGreatestPoint(vents);
 
     vector<vector<int>> board(greatestPoint.y + 2, vector<int>(greatestPoint.x + 2, 0));
     for (const auto &[ep1, ep2] : vents)
@@ -81,14 +96,49 @@ void part1(const vector<Line> &vents)
         }
     }
 
-    int ans = 0;
-    for (const auto &r : board)
+    cout << countAns(board) << '\n';
+}
+
+void part2(const vector<Line> &vents)
+{
+    auto greatestPoint = getGreatestPoint(vents);
+
+    vector<vector<int>> board(greatestPoint.y + 2, vector<int>(greatestPoint.x + 2, 0));
+    auto markDiagonal = [&board](Point ep1, Point ep2) {
+        if (ep1.y <= ep2.y)
+            for (int x = ep1.x, y = ep1.y; x <= ep2.x; ++x, ++y)
+                ++board[y][x];
+        else
+            for (int x = ep1.x, y = ep1.y; x <= ep2.x; ++x, --y)
+                ++board[y][x];
+    };
+
+    for (const auto &[ep1, ep2] : vents)
     {
-        for (const auto c : r)
-            ans += c >= 2;
+        if (ep1.x == ep2.x)
+        {
+            for (int y = min(ep1.y, ep2.y); y <= max(ep1.y, ep2.y); ++y)
+                ++board[y][ep1.x];
+        }
+        else if (ep1.y == ep2.y)
+        {
+            for (int x = min(ep1.x, ep2.x); x <= max(ep1.x, ep2.x); ++x)
+                ++board[ep1.y][x];
+        }
+        else
+        {
+            if (ep1.x <= ep2.x)
+            {
+                markDiagonal(ep1, ep2);
+            }
+            else
+            {
+                markDiagonal(ep2, ep1);
+            }
+        }
     }
 
-    cout << ans << '\n';
+    cout << countAns(board) << '\n';
 }
 
 int main()
@@ -98,4 +148,5 @@ int main()
     auto vents = readInput(fin);
 
     part1(vents);
+    part2(vents);
 }
