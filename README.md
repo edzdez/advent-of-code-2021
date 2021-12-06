@@ -2,19 +2,27 @@
 
 My solutions for Advent of Code 2021
 
-## How do I run the code?
+## To Build
 
-1. Clone the repo
-2. `cd` into the repo and generate CMake build files
-   > $ `cmake .`
-3. Build the code
-   > $ `make`
-4. Place your puzzle input into a file in the directory with the binaries, named in the fashion of  
+```shell
+$ git clone "https://github.com/edzdez/advent-of-code-2021.git"
+$ cd ./advent-of-code-2021
+$ cmake .
+$ make
+```
+
+## To Run
+
+1. Place your puzzle input into a file in the directory with the binaries, named in the fashion of  
    `dXinput`, where X is the puzzle day (e.g. `d5input` or `d12input`)
-5. Run the binary
-   > $ `./dayX`
+2. Run the binary
+
+```shell
+$ ./dayX 
+```
 
 ## Progress
+
 - [x] Day 1
 - [x] Day 2
 - [x] Day 3
