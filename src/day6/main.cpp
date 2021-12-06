@@ -32,7 +32,7 @@ class LanternFish
         }
     }
 
-    int getTimer() const
+    [[nodiscard]] int getTimer() const
     {
         return m_timer;
     }
@@ -79,7 +79,7 @@ void part1(vector<LanternFish> v)
     cout << v.size() << '\n';
 }
 
-void part2(vector<LanternFish> v)
+void part2(const vector<LanternFish> &v)
 {
     vector<size_t> fishAtAge(9, 0);
     for (const auto &fish : v)
