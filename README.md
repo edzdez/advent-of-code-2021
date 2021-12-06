@@ -14,8 +14,7 @@ My solutions for Advent of Code 2021
 5. Run the binary
    > $ `./dayX`
 
-## Completion Status
-
+## Progress
 - [x] Day 1
 - [x] Day 2
 - [x] Day 3
