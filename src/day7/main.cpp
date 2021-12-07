@@ -1,7 +1,6 @@
 #include <fstream>
 #include <iostream>
 #include <numeric>
-#include <ranges>
 #include <set>
 #include <sstream>
 #include <vector>
