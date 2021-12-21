@@ -1,6 +1,6 @@
 # Advent of Code 2021
 
-My solutions for Advent of Code 2021
+My solutions for Advent of Code 2021.
 
 ## To Build
 
@@ -13,7 +13,7 @@ $ make
 
 ## To Run
 
-1. Place your puzzle input into a file in the directory with the binaries, named in the fashion of  
+1. Place your puzzle input into a file in the directory with the binaries, named in the format of  
    `dXinput`, where X is the puzzle day (e.g. `d5input` or `d12input`)
 2. Run the binary
 
