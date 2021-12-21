@@ -68,7 +68,7 @@ fun part2(template: String, patterns: Map<String, String>) {
 }
 
 fun main() {
-    val br = File("input").bufferedReader()
+    val br = File("d14input").bufferedReader()
     val template = br.readLine()
     br.readLine()
     val patterns = br.lines().map {
