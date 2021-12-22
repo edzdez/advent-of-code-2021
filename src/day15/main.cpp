@@ -22,7 +22,7 @@ map<pair<int, int>, int> dijkstra(const vector<vector<int>> &dangerLevels, const
     int dx[]{-1, 1, 0, 0}, dy[]{0, 0, -1, 1};
     while (!pq.empty())
     {
-        auto [w, p] = pq.top();
+        auto [_, p] = pq.top();
         auto [x, y] = p;
         pq.pop();
 
@@ -33,10 +33,11 @@ map<pair<int, int>, int> dijkstra(const vector<vector<int>> &dangerLevels, const
             if (absX < 0 || absX >= dangerLevels[0].size() || absY < 0 || absY >= dangerLevels.size())
                 continue;
 
-            if (minDistances[{absX, absY}] > w + dangerLevels[absY][absX])
+            auto w = dangerLevels[absY][absX];
+            if (minDistances[{absX, absY}] > w + minDistances[{x, y}])
             {
-                minDistances[{absX, absY}] = w + dangerLevels[absY][absX];
-                pq.push({minDistances[{absX, absY}], make_pair(absX, absY)});
+                minDistances[{absX, absY}] = w + minDistances[{x, y}];
+                pq.push({w, make_pair(absX, absY)});
             }
         }
     }
