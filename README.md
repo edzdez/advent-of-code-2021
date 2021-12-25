@@ -1,8 +1,11 @@
 # Advent of Code 2021
 
-My solutions for Advent of Code 2021.
+My solutions for Advent of Code 2021. I started writing most of them in C++, but some of them just became too much of a
+pain, so I started writing a few in Kotlin.
 
 ## To Build
+
+### C++ Solutions
 
 ```shell
 $ git clone "https://github.com/edzdez/advent-of-code-2021.git"
@@ -11,7 +14,13 @@ $ cmake .
 $ make
 ```
 
+### Kotlin Solutions
+
+Idk, just open the folder for the day with Intellij ig.
+
 ## To Run
+
+### C++
 
 1. Place your puzzle input into a file in the directory with the binaries, named in the format of  
    `dXinput`, where X is the puzzle day (e.g. `d5input` or `d12input`)
@@ -20,6 +29,11 @@ $ make
 ```shell
 $ ./dayX 
 ```
+
+### Kotlin
+
+Name the input file in the same way but put it in the root of the folder (ie day14 or day16). Then, just run it in
+Intellij.
 
 ## Progress
 
@@ -38,7 +52,7 @@ $ ./dayX
 - [x] Day 13
 - [x] Day 14 (Kotlin)
 - [x] Day 15
-- [ ] Day 16
+- [x] Day 16 (Kotlin)
 - [ ] Day 17
 - [ ] Day 18
 - [ ] Day 19
